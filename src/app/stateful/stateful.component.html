@@ -1,0 +1,31 @@
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <h1>Stateful</h1>
+        <p class="lead">Ejemplo de componete stateful.</p>
+
+        <div class="card-deck">
+            <div class="card" *ngFor="let curso of shopModel.shopItems">
+                <app-stateless 
+                    [product]="curso"
+                    (cursoMatriculado)="cursoMatriculado($event)"
+                ></app-stateless>
+            </div>
+        </div>
+    </div>
+
+    <ul class="list-group mt-3">
+        <li class="list-group-item disabled lead">Información matrícula</li>
+        <li *ngFor="let boughtItem of boughtItems" class="list-group-item">
+            {{ boughtItem.title }}
+            <span class="badge badge-info float-right">{{ boughtItem.price }} €</span>
+        </li>
+        <li class="list-group-item font-weight-bold">
+            <div class="row justify-content-between px-3">
+                <h4 class="d-inline-block">Total: {{ totalMatricula }} €</h4>
+                <app-confirm></app-confirm>
+            </div>
+        </li>
+    </ul>
+    
+</main><!-- /.container -->
